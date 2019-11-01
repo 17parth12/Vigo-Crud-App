@@ -1,0 +1,68 @@
+
+ <div class="d-flex" id="wrapper">
+    <!-- Sidebar -->
+    <div class="bg-light border-right" id="sidebar-wrapper">
+      <div class="sidebar-heading"><h3 id="lbl">ADMIN</h3></div>
+      <div class="list-group list-group-flush">
+        <a href="#" class="list-group-item list-group-item-action bg-light">Dashboard</a>
+        <h4 id="add"><a routerLink="/add" class="btn btn-primary">Add Employee</a></h4>
+        <h4 id="add"><a routerLink="/view" class="btn btn-primary">EMPLOYEE</a></h4>
+        <h4 id="add"><a routerLink="/addoffice" class="btn btn-primary">LOCATION</a></h4>
+        <h4 id="add"><a routerLink="/office" class="btn btn-primary">OFFICE</a></h4>
+        <h4 id="add"><a routerLink="/salary" class="btn btn-primary">SALARY</a></h4>
+        <h4 id="add"><a routerLink="/manager" class="btn btn-primary">MANAGER</a></h4>    
+        <h4 id="add"><a routerLink="/department" class="btn btn-primary">DEPARTMENT</a></h4>
+      </div>
+    </div>
+    
+
+    <!-- /#sidebar-wrapper -->
+    <!-- Page Content -->
+<div id="page-content-wrapper">
+  <div class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+     <h2 class="head-cls">VIGO CRUD  APP </h2> 
+   </div>
+  <div class="container-fluid">
+    <h4 class="mt-4 text-center" id="lbl">Add Location Details. (Postcode will be shown as a Primary Selection during Add Employee)</h4>
+     <div class="col-md-12">
+    <!---Add Form starts-->
+     <form [formGroup]="addForm" novalidate class="form">
+        <div class="form-group">
+          <label for="phone">Copmany Phone</label>
+          <input  type="text" formControlName="phone"  placeholder="Enter Company Phone Number" name="phone" maxlength="40" class="form-control">
+        </div>
+        <div class="alert alert-danger" *ngIf="addForm.get('phone').hasError('required') && addForm.get('phone').touched">
+          Please Enter Phone Number 
+        </div>
+
+        <div class="form-group">
+            <label for="postcode">Copmany Postcode</label>
+            <input  type="text" formControlName="postcode"  placeholder="Enter Company postcode" name="postcode" maxlength="40" class="form-control">
+          </div>
+          <div class="alert alert-danger" *ngIf="addForm.get('postcode').hasError('required') && addForm.get('postcode').touched">
+            Please Enter Postcode 
+          </div>
+
+          <div class="form-group">
+            <label for="address">Copmany Address</label>
+            <input  type="text" formControlName="address"  placeholder="Enter Company Address" name="address" maxlength="40" class="form-control">
+          </div>
+          <div class="alert alert-danger" *ngIf="addForm.get('address').hasError('required') && addForm.get('address').touched">
+            Please Enter Address 
+          </div>
+
+          <div class="form-group">
+            <label for="city">City</label>
+            <input  type="text" formControlName="city"  placeholder="Enter City Name" name="city" maxlength="40" class="form-control">
+          </div>
+          <div class="alert alert-danger" *ngIf="addForm.get('city').hasError('required') && addForm.get('city').touched">
+            Please Enter Address 
+          </div>
+              <button class="btn btn-success" (click)="onSubmit()">Save</button>
+     </form>
+     <!---Add Form Ends-->
+    </div>
+  </div>  
+  
+  
+  

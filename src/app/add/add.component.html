@@ -1,0 +1,85 @@
+
+ <div class="d-flex" id="wrapper">
+    <!-- Sidebar -->
+    <div class="bg-light border-right" id="sidebar-wrapper">
+      <div class="sidebar-heading"><h3 id="lbl">ADMIN</h3></div>
+      <div class="list-group list-group-flush">
+        <a href="#" class="list-group-item list-group-item-action bg-light">Dashboard</a>
+        <h4 id="add"><a routerLink="/add" class="btn btn-primary">Add Employee</a></h4>
+        <h4 id="add"><a routerLink="/view" class="btn btn-primary">EMPLOYEE</a></h4>
+        <h4 id="add"><a routerLink="/addoffice" class="btn btn-primary">LOCATION</a></h4>
+        <h4 id="add"><a routerLink="/office" class="btn btn-primary">OFFICE</a></h4>
+        <h4 id="add"><a routerLink="/salary" class="btn btn-primary">SALARY</a></h4>
+        <h4 id="add"><a routerLink="/manager" class="btn btn-primary">MANAGER</a></h4>    
+        <h4 id="add"><a routerLink="/department" class="btn btn-primary">DEPARTMENT</a></h4>
+      </div>
+    </div>
+
+
+    <!-- /#sidebar-wrapper -->
+    <!-- Page Content -->
+<div id="page-content-wrapper">
+  <div class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+     <h2 class="head-cls">VIGO CRUD  APP </h2> 
+   </div>
+  <div class="container-fluid">
+    <h4 class="mt-4 text-center" id="lbl">Add Employee</h4>
+     <div class="col-md-12">
+    <!---Add Form starts-->
+     <form [formGroup]="addForm" novalidate class="form">
+       <div class="form-group">
+          <label for="fname">First Name</label>
+          <input  type="text" formControlName="fname"  placeholder="First Name" name="fname" maxlength="40" class="form-control">
+        </div>
+        <div class="alert alert-danger" *ngIf="addForm.get('fname').hasError('required') && addForm.get('fname').touched">
+          Please Enter First Name, It Must be less than 40 characters. 
+        </div>
+        <div class="form-group">
+            <label for="lname">Last Name</label>
+            <input type="text" formControlName="lname" placeholder="Last Name" name="lname" maxlength="30" class="form-control">
+        </div>
+          <div class="alert alert-danger" *ngIf="addForm.get('lname').hasError('required') && addForm.get('lname').touched">
+                Please Enter Last Name, It Must be less than 30 characters.
+          </div>
+              
+           <div class="form-group">
+              <label for="email">E-mail</label>
+              <input type="email" formControlName="email" placeholder="E-mail" name="email" maxlength="30" class="form-control">
+            </div>
+              <div class="alert alert-danger" *ngIf="addForm.get('email').hasError('required') && addForm.get('email').touched">
+                  Please Enter E-mail, It Must be less than 30 characters.
+                </div>
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+  
+          <div class="form-group">
+              <label for="phone">Phone</label>
+              <input type="text" formControlName="phone" placeholder="Phone" name="phone" maxlength="11" class="form-control">
+            </div>
+
+            <div class="alert alert-danger" *ngIf="addForm.get('phone').hasError('required') && addForm.get('phone').touched">
+                Please Enter Phone Number, It Must be less than 11 numbers.
+              </div>
+  
+            <div class="form-group">
+                <label for="position">Position</label>
+                <input type="text" formControlName="position" placeholder="Position" name="position" maxlength="30" class="form-control">
+              </div>
+              <div class="alert alert-danger" *ngIf="addForm.get('position').hasError('required') && addForm.get('position').touched">
+                  Please Enter Position/Post, , It Must be less than 30 characters.
+                </div>
+                <div class="form-group">
+                  <h3>Office Details</h3>
+                  <label  for="inputState">Select Office Postcode</label>
+                  <select formControlName="postcode" name="postcode" class="form-control">
+                 <option  selected>Select Postcode</option>
+                    <option *ngFor="let std of location">{{std.postcode}}</option>
+                  </select>
+                </div>
+
+              <button class="btn btn-success" (click)="onSubmit()">Save</button>
+     </form>
+     <!---Add Form Ends-->
+    </div>
+  </div>  
+  
+  

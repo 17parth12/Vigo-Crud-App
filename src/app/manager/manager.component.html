@@ -1,0 +1,49 @@
+<div class="d-flex" id="wrapper">
+        <!-- Sidebar -->
+        <div class="bg-light border-right" id="sidebar-wrapper">
+          <div class="sidebar-heading"><h3 id="lbl">ADMIN</h3></div>
+          <div class="list-group list-group-flush">
+            <a href="#" class="list-group-item list-group-item-action bg-light">Dashboard</a>
+            <h4 id="add"><a routerLink="/add" class="btn btn-primary">Add Employee</a></h4>
+            <h4 id="add"><a routerLink="/view" class="btn btn-primary">EMPLOYEE</a></h4>
+            <h4 id="add"><a routerLink="/addoffice" class="btn btn-primary">LOCATION</a></h4>
+            <h4 id="add"><a routerLink="/office" class="btn btn-primary">OFFICE</a></h4>
+            <h4 id="add"><a routerLink="/salary" class="btn btn-primary">SALARY</a></h4>
+            <h4 id="add"><a routerLink="/manager" class="btn btn-primary">MANAGER</a></h4> 
+            <h4 id="add"><a routerLink="/department" class="btn btn-primary">DEPARTMENT</a></h4> 
+          </div>
+        </div>
+        <!-- /#sidebar-wrapper -->
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+          <div class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+              <h2 class="head-cls">VIGO CRUD  APP </h2> 
+          </div>
+          <div class="container-fluid">
+            <h4 class="mt-4 text-center" id="lbl">Employee Manger</h4>
+            <div class="col-md-12">
+                  <table class="table table-striped" id="myTable">
+                    <thead>
+                      <tr>
+                        <th scope="col">First Name</th>
+                        <th scope="col">Last Name</th>
+                        <th scope="col">Department</th>
+                        <th scope="col">Manager Name</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let std of manager">
+                        <td>{{ std.fname }}</td>
+                        <td>{{ std.lname }}</td>
+                        <td>{{ std.dep_name }}</td>
+                        <td id="man">{{std.f_name}} {{std.l_name}}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                 </div>
+             </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+    
+     
+    
